@@ -4,18 +4,14 @@ import java.util.Scanner;
 
 public class FracCalc {
 
-    public static void main(String[] args) 
-    {
-        // TODO: Read the input from the user and call produceAnswer with an equation
+    public static void main(String[] args) {
     	Scanner console = new Scanner(System.in);
     	System.out.print("Input (quit to end): ");
     	String line = console.nextLine();
     	String answer = produceAnswer(line);
     	System.out.println("answer: " + answer);
-
     }
     
-    // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
     // This function takes a String 'input' and produces the result
     //
     // input is a fraction string that needs to be evaluated.  For your program, this will be the user input.
@@ -24,7 +20,7 @@ public class FracCalc {
     // The function should return the result of the fraction after it has been calculated
     //      e.g. return ==> "1_1/4"
     public static String produceAnswer(String input){ 
-        // TODO: Implement this function to produce the solution to the input
+        
         Scanner inputScanner = new Scanner(input);
         String O1 = inputScanner.next();
         String operator = inputScanner.next();
@@ -39,7 +35,6 @@ public class FracCalc {
         int[] test = doMath(t1, t2, operator);
         int[] fin = simplify(test);
         
-    	
     	inputScanner.close();
     
     	if(fin[2]==1) {
@@ -107,9 +102,6 @@ public class FracCalc {
             parts[2] = Integer.parseInt(denominator);
         }
         
-        // TODO: Special case! Negative numbers! For an operand like "-2_3/4"
-        // TODO: The mathematical value will be -2.75, which is -2-3/4
-        // TODO: So if Whole is negative, we need to make the Numerator negative as well!
         if(operand.substring(0,1).equals("-")) {
         	if(iNumS>0) {
         		String numerator = operand.substring(iNumS, iNumF);
@@ -119,10 +111,7 @@ public class FracCalc {
           
         return parts;
     }
-
-    // TODO: Fill in the space below with any helper methods that you think you will need
     
-    //this works 
     public static int[] improper(int[] input){
     	int[] imp = new int[2];
     	int whole1 = input[0];
@@ -198,6 +187,4 @@ public class FracCalc {
     	
     	return result;
     }
-
-    
 }
